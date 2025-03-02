@@ -1,0 +1,36 @@
+﻿<Page x:Class="Rental.Pages.FinancialReporting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rental.Pages"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="Финансовая отчетность">
+
+    <Grid>
+        <TabControl>
+            <!-- Tab 1: Расчет стоимости с учетом скидки -->
+            <TabItem Header="Расчет стоимости">
+                <StackPanel>
+                    <xctk:WatermarkTextBox x:Name="passportTextBox" Watermark="Введите паспорт клиента" Width="200" Margin="5"/>
+                    <xctk:WatermarkTextBox x:Name="carIdTextBox" Watermark="Введите ID автомобиля" Width="200" Margin="5"/>
+                    <DatePicker x:Name="startDatePicker" Width="200" Margin="5"/>
+                    <DatePicker x:Name="endDatePicker" Width="200" Margin="5"/>
+                    <Button Content="Рассчитать стоимость" Click="OnCalculatePriceClick" Width="200" Margin="5"/>
+                    <TextBlock x:Name="calculatedPriceTextBlock" Margin="5"/>
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab 2: Выручка по месяцам -->
+            <TabItem Header="Выручка">
+                <StackPanel>
+                    <DatePicker x:Name="revenueDatePicker" Width="200" Margin="5" SelectedDateChanged="OnRevenueDateChanged"/>
+                    <TextBlock x:Name="revenueTextBlock" Margin="5"/>
+                    <DataGrid x:Name="revenueDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="300"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

@@ -1,0 +1,61 @@
+﻿<Page x:Class="Rental.Pages.CarRentalManagement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rental.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="Управление прокатом автомобилей">
+
+    <Grid>
+        <TabControl>
+            <!-- Tab 1: Список клиентов -->
+            <TabItem Header="Список клиентов">
+                <StackPanel>
+                    <DataGrid x:Name="clientsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="300"/>
+                    <Button Content="Добавить клиента" Click="OnAddClientClick" Width="150" Margin="5"/>
+                    <Button Content="Редактировать клиента" Click="OnEditClientClick" Width="150" Margin="5"/>
+                    <Button Content="Удалить клиента" Click="OnDeleteClientClick" Width="150" Margin="5"/>
+                    <!-- New Button for Client Details -->
+                    <Button Content="Показать сведения о клиенте" Click="OnShowClientDetailsClick" Width="250" Margin="5"/>
+                </StackPanel>
+            </TabItem>
+
+
+            <!-- Tab 2: Список автомобилей -->
+            <TabItem Header="Список автомобилей">
+                <StackPanel>
+                    <DataGrid x:Name="carsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="300"/>
+                    <Button Content="Добавить автомобиль" Click="OnAddCarClick" Width="150" Margin="5"/>
+                    <Button Content="Обновить статус" Click="OnUpdateCarStatusClick" Width="150" Margin="5"/>
+                    <!-- Кнопка для отображения популярности автомобилей -->
+                    <Button Content="Показать популярность автомобилей" Click="OnShowCarPopularityClick" Width="250" Margin="5"/>
+                    <!-- DataGrid для отображения популярности автомобилей -->
+                    <DataGrid x:Name="carPopularityDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="300"/>
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab 3: Информация о заказах -->
+            <TabItem Header="Информация о заказах">
+                <StackPanel>
+                    <DataGrid x:Name="ordersDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="300" SelectionChanged="ordersDataGrid_SelectionChanged"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <Button Content="Создать заказ" Click="OnCreateOrderClick" Width="150" Margin="5"/>
+                        <Button Content="Редактировать заказ" Click="OnEditOrderClick" Width="150" Margin="5"/>
+                        <Button Content="Завершить аренду" Click="OnCompleteOrderClick" Width="150" Margin="5"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab 3: Наличие свободных, отданных на прокат, заказанных заранее автомобилей  -->
+            <TabItem Header="Наличие автомобилей">
+                <StackPanel>
+                    <Button Content="Показать наличие автомобилей" Click="OnShowCarAvailabilityClick" Width="250" Margin="5"/>
+                    <DataGrid x:Name="carAvailabilityDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="300"/>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Page>

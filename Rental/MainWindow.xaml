@@ -1,0 +1,32 @@
+﻿<Window x:Class="Rental.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="650" Width="1100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- Фиксированный блок для кнопок -->
+            <ColumnDefinition Width="*"/>
+            <!-- Пространство для страниц -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Блок с кнопками слева -->
+        <StackPanel Background="LightGray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Button Content="Просмотреть таблицы" 
+                    Margin="10" Padding="10"
+                    Click="ViewTablesButton_Click" />
+            <Button Content="Управление прокатом автомобилей"
+                    Margin="10" Padding="10"
+                    Click="ClientsPageButton_Click" />
+            <Button Content="Управление скидками и ценами"
+                Margin="10" Padding="10"
+                Click="CarsPageButton_Click" />
+            <Button Content="Финансовая отчетность"
+                Margin="10" Padding="10"
+                Click="FinancialPageButton_Click" />
+        </StackPanel>
+
+        <!-- Пространство для страниц -->
+        <Frame Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>
